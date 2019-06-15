@@ -15,6 +15,9 @@ body a{
 	text-decoration: none;
 	transition: color 0.2s linear;
 }
+h3 {
+    color: #c3c3c3;
+}
 /*SCROLL BAR*/
 
 ::-webkit-scrollbar-track
@@ -29,10 +32,7 @@ body a{
   width: 10px;
   background-color: #2b2d34;
 }
-  /*
-  background-image: -webkit-gradient(linear, 40% 0%,75% 84%,from(#4D9C41),to(#19911D),color-stop(.6,#54DE5D))
-   background-image: -webkit-gradient(linear, 40% 0%, 75% 84%, from(#04ffb4), to(#2196fd), color-stop(.6,#2196fd));
-  -webkit-gradient(linear,40% 0%,75% 84%,from(#3A1C71),to(#FFAF7B), color-stop(.6,#D76D77));*/
+
 ::-webkit-scrollbar-thumb{
      border-radius: 10px;
      background-color: #FFF;
@@ -434,7 +434,7 @@ a.logo-image img {
   right: 0;
   cursor: pointer;
   transition: transform .3s ease-in-out;
-  background: #2a2c33;
+  /*background: #2a2c33;*/
 }
 
 .menu-btn span {
@@ -465,7 +465,7 @@ span.top {
 #nav {
     width: 50%;
     height: 100%;
-    background-color: rgba(14, 15, 15, 0.85);
+    background-color: rgb(255, 255, 255);
     position: fixed;
     top: 0;
     right: 0;
@@ -578,18 +578,18 @@ span.top {
 }
 .title-page:before {
    
-    top: 0px;
-    right: 0px;
+    top: 32%;
+    left: 50%;
     position: absolute;
-    color: rgba(0, 0, 0, 0.04);
-    font-size: 92px;
+    color: rgb(255, 255, 255);
+    font-size: 107px;
     z-index: -1;
     font-weight: 300;
     letter-spacing: -4px;
     text-transform: capitalize;
 }
 .title-page {
-    
+    text-align: center;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
     font-weight: 700;
@@ -602,10 +602,25 @@ span.top {
 .resume.title-page:before {
     content: "Resume";
 }
-.education {
-    margin-top: 96px;
+.resume-content {
+   
 }
-.education h4 {
+
+.education-title, .experience-title {
+    padding-left: 100px;
+
+}
+.education-content, .experience-content{
+    padding-right: 100px;
+}
+.resume-content.experience {
+    padding-top: 0;
+    padding-bottom: 100px;
+}
+.education-title, .education-content{
+    padding-top: 100px;
+}
+.resume-content h4 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
@@ -631,12 +646,13 @@ span.top {
     padding: 1px 15px;
     border-radius: 100px;
 }
-.education h4 {
+.resume-content h4 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     padding-bottom: 4px;
     font-size: 14px;
+    color: #fff;
 }
 .resume-row p {
     margin-top: 12px;
@@ -654,6 +670,7 @@ span.top {
     border-radius: 50%;
 }
 /*****************ABOUT*****************/
+
 .scene {
   position: relative;
   overflow: hidden;
@@ -672,18 +689,36 @@ span.top {
   position: absolute;
   top: calc(50% - 10rem);
   left: calc(50% - 10rem);
-  width: 10rem;
-  height: 10rem;
+  width: 20rem;
+  height: 20rem;
+  box-shadow: 1px 1px #000;
+  transition: 0.1s all;
   opacity: 0.8;
-  background: url('../img/bg.jpg') 50% 50% no-repeat fixed;
+  
   background-size: cover;
   border-radius: 50%;
 }
-.aboutBannerContent {
+.magic1{
+    background: url('../img/bg1.jpg') 50% 50% no-repeat fixed;
+}
+.magic2{
+    background: url('../img/bg3.jpg') 50% 50% no-repeat fixed;
+}
+.magic3{
+    background: url('../img/bg4.jpg') 50% 50% no-repeat fixed;
+}
+.banner-content {
     width: 100%;
     float: left;
     position: absolute;
-    top: 5%;
+    top: 10%;
+    z-index: 99;
+}
+.contact-banner-content.banner-content {
+    top: 18.5%;
+}
+.resume-banner-content.banner-content {
+    top: 11.8%;
 }
 .bannerGrid {
     height: 25%;
@@ -692,19 +727,68 @@ span.top {
     height: 100%;
 }
 .about.title-page:before {
-    content: "About";
+    content: "About Me";
 }
-.about-me h4 {
-    margin-top: 96px;
-    font-weight: 600;
+
+
+.row.about-detail, .about-img, .about-img-left {
+    padding: 0;
+    margin: 0;
 }
-.about-me p {
+.about-img{
+    height: 683px;
+    position: relative;
+    margin-bottom: 50px;
+}
+}
+.about-img-right.col-md-6.col-sm-6 {
+    background-color: #fff;
+    padding: 50px;
+    overflow: hidden;
+    right: 0;
+    position: absolute;
+    height: 100%;
+}
+.about-img-right.col-md-6.col-sm-6 {
+    height: 100%;
+    background: #fff;
+    padding: 50px;
+    overflow: hidden;
+    right: 0;
+    position: absolute;
+}
+.about-img-left{
+    position: relative;
+    z-index: 100;
+    transition: 0.7s all;
+    float: left;
+   
+}
+.fixed-img {
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 100;
+    transition: 0.4s all;
+     opacity: 0.8;
+}
+.about-img-left.js-sticky img {
+    width: 100%;
+}
+.about-img-right h2 {
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 700;
+}
+.about-img-right p {
     margin-top: 24px;
 }
 .personal-info {
-    margin-top: 48px;
+    margin-top: 30px;
 }
-
+.personal-info ul li{
+    line-height: 1.5;
+}
 .title-section {
     font-size: 12px;
     letter-spacing: 0.09em;
@@ -757,7 +841,8 @@ p {
     z-index: 1;
 }
 .skill {
-    margin-top: 48px;
+    padding: 0 100px 50px 100px;;
+    position: relative;
 }
 .skill p {
     margin-top: 24px;
@@ -808,7 +893,10 @@ p {
     color: #a6a6a6;
 }
 .services{
-  margin-top: 48px;
+    
+    padding: 0 100px 0px 100px;
+    height: 235px;
+    margin-bottom: 50px;
 }
 .services p {
     margin-top: 24px;
@@ -842,15 +930,31 @@ p {
     content: "Contact";
 }
 .contact-text {
-    margin-top: 46px;
     background: #deddde;
     padding: 46px;
     color: #51282b;
     font-size: 20px;
     font-weight: 700;
+    
+}
+.class{
+    padding-left:100px;
+    padding-right: 100px;
     text-align: center;
 }
-/************ projetc */
+
+.copyright-contact {
+    text-align: center;
+}
+.contact-text ul li {
+    display: inline-block;
+    line-height: 2.1;
+    font-size: 20px;
+    text-align: center;
+    width: 33%;
+    border-right: 2px solid #000;
+}
+/************ project *****************/
 section#projects {
     width: 100%;
     background: #131213;
@@ -878,7 +982,7 @@ section#projects {
     min-height: 20px;
     padding: 0;
     margin-bottom: 20px;
-    background-color: #ffffff;
+    background-color: transparent;
     border: none;
     border-radius: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
@@ -887,6 +991,9 @@ section#projects {
     text-align: left;
     font-size: 14px;
     font-style: italic;
+}
+.portfolio.title-page{
+    text-align: left;
 }
 .portfolio.title-page:before {
     content: "Portfolio";
@@ -1369,7 +1476,7 @@ input#btn1 {
     width: 40px !important;
   }
   /*About*/
-  .detail-about{
+  .about-detail{
     display: block;
   }
   .intro-about{
